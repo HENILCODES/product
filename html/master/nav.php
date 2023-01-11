@@ -4,9 +4,8 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
 </head>
 <?php
-// include "/product/database/connection.php";
+
 include "/opt/lampp/htdocs/product/database/connection.php";
-// include "../../database/connection.php";
 ?>
 <nav class="navbar navbar-expand-lg sticky-top shadow navbar-light bg-light">
     <div class="container-fluid">
