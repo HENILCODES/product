@@ -28,7 +28,7 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                     </div>
                     <div class="modal-body">
-                        <form action="../../../app/document/add.php" method="get" autocomplete="off">
+                        <form action="/product/app/document/add.php" method="get" autocomplete="off">
                             <div class="form-outline mb-4">
                                 <label for="document" class="form-label">Proof Type</label>
                                 <select class="form-select form-select-lg" id="document" name="document">
@@ -59,7 +59,7 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                     </div>
                     <div class="modal-body">
-                        <form action="../../../app/user/update.php" method="post" autocomplete="off">
+                        <form action="/product/app/user/update.php" method="post" autocomplete="off">
                             <div class="form-outline mb-4">
                                 <label class="form-label">User Name</label>
                                 <input required type="text" value="<?php echo $rowsP['Customer_name']; ?>" name="Name" class="form-control" />
@@ -84,7 +84,7 @@
                         <div class="card mb-3 shadow" style="border-radius: .5rem;">
                             <div class="row g-0">
                                 <div class="col-md-4 gradient-custom text-center text-black" style="border-top-left-radius: .5rem; border-bottom-left-radius: .5rem;">
-                                    <img src="../../../storage/upload/download.png" alt="Avatar" class="img-fluid my-5" style="width: 80px;" />
+                                    <img src="/product/storage/upload/download.png" alt="Avatar" class="img-fluid my-5" style="width: 80px;" />
                                     <h2><?php echo $rowsP['Customer_name']; ?></h2>
                                 </div>
                                 <div class="col-md-8">
@@ -126,7 +126,7 @@
                                                     <p class="text-muted"><?php echo $rowsP['number'] ?></p>
                                                 </div>
                                                 <div class="col">
-                                                    <a type="button" class="btn btn-danger" href="../../../app/document/delete.php?deleteDocument=<?php echo $active_user_id; ?>">
+                                                    <a class="btn btn-danger" href="/product/app/document/delete.php?deleteDocument=<?php echo $activeUserId; ?>">
                                                         <i class="bi bi-trash "></i>
                                                     </a>
                                                 </div>

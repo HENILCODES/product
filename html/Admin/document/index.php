@@ -10,8 +10,7 @@
 
 <body>
     <?php
-    include "../../database/connection.php";
-    include "../master/Nav.php";
+    include "/opt/lampp/htdocs/product/html/Admin/master/Nav.php";
     ?>
     <div class="container">
         <section style="background-color: #eee;" class="shadow rounded ps-5 pe-5">

@@ -16,7 +16,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Henil code</title>
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/product/css/bootstrap.min.css">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
     </head>
 
@@ -36,14 +36,14 @@
         }
     }
     ?>
-
     <div class="container my-3">
+        <a href="/product/html/Admin/home/" class="fs-3 text-decoration-none">Home</a>
         <div class="my-5 text-center">
             <h1 class="text-success">Update Product</h1>
         </div>
         <div class="container">
             <div class="card rounded float-end w-25">
-                <img class="card-img-top" src="../../storage/upload/<?php echo $photo; ?>" alt="<?php echo $photo; ?>">
+                <img class="card-img-top" src="/product/storage/upload/<?php echo $photo; ?>" alt="<?php echo $photo; ?>">
                 <div class="card-body">
                     <label for="photo" class="btn btn-primary">Change</label>
                 </div>
@@ -60,7 +60,7 @@
             </div>
             <div class="input-group">
                 <spna class="input-group-text justify-content-center">Price</spna>
-                <input required type="text" value="<?php echo $price; ?>" class="form-control" name="Product_price" placeholder="Price">
+                <input required type="number" value="<?php echo $price; ?>" class="form-control" name="Product_price" placeholder="Price">
             </div>
             <div class="input-group">
                 <span class="input-group-text justify-content-center">Photo</span>
@@ -83,12 +83,12 @@ if (isset($_REQUEST['updateProduct'])) {
         $query = "UPDATE products SET name='$name',price=$price WHERE id = $id";
     } else {
         $PrductPhoto = $_FILES['Product_photo']['name'];
-        move_uploaded_file($_FILES['Product_photo']['tmp_name'], "../../storage/upload/" . $PrductPhoto);
+        move_uploaded_file($_FILES['Product_photo']['tmp_name'], "/opt/lampp/htdocs/product/storage/upload/" . $PrductPhoto);
         $query = "UPDATE products SET name='$name',price=$price,photo='$PrductPhoto' WHERE id = $id";
     }
     $exec_query = mysqli_query($conn, $query);
     if ($exec_query) {
-        header("location: ../../Admin/product/");
+        header("location: /product/html/Admin/product/");
     }
 }
 ?>

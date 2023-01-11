@@ -8,7 +8,7 @@ if (isset($_REQUEST['orderId'])) {
     $deleteQuery = "delete from users_products where id = $orderId";
     $executeDelet = mysqli_query($conn,$deleteQuery);
     if ($executeDelet) {
-        header("location: ../../html/order/");
+        header("location: /product/html/order/");
     }
 }
 
@@ -19,6 +19,6 @@ if (isset($_REQUEST['Order_id'])) {
     $deleteQuery = "delete from users_products where id = $OrderId";
     $executeDelet = mysqli_query($conn, $deleteQuery);
     if ($executeDelet) {
-        header("location: ../../Admin/order/");
+        header("location: /product/html/Admin/order/");
     }
 }

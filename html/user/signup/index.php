@@ -10,7 +10,7 @@
     <div class="container">
         <a href="../../home/"> Home </a>
         <div class="w-100 p-4 d-flex justify-content-center pb-4">
-            <form action="../../../app/user/signup.php" method="POST">
+            <form action="/product/app/user/signup.php" method="POST">
                 <div class="form-outline mb-4">
                     <label class="form-label" for="name">User Name</label>
                     <input required type="text" name="Name" id="name" class="form-control" />

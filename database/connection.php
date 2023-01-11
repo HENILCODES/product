@@ -11,3 +11,11 @@ $conn = mysqli_connect("localhost", "root", "", "store");
 if (!$conn) {
     echo "Not Connect";
 }
+
+
+class Connection{
+    public $conn;
+    function ConnectionStart(){
+       return mysqli_connect("localhost","root","","store"); 
+    }
+}

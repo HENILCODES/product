@@ -13,6 +13,6 @@ if (isset($_REQUEST['Product_id'])) {
     $deleteQuery = "delete from products where id = $ProductId";
     $executeDelet = mysqli_query($conn, $deleteQuery);
     if ($executeDelet) {
-        header("location: ../../Admin/product/");
+        header("location: /product/html/Admin/product/");
     }
 }

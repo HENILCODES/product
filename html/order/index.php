@@ -45,7 +45,7 @@
                                     <div class="row d-flex justify-content-between align-items-center">
                                         <div class="col-md-2 col-lg-2 col-xl-2">
                                             <a href="../product/index.php?q=<?php echo $rows['product_id']; ?>">
-                                                <div class="card-img-top imgSet" style=" background: url('../../storage/upload/<?php echo $rows['photo']; ?>')" alt="Apple Computer"></div>
+                                                <div class="card-img-top imgSet" style=" background: url('/product/storage/upload/<?php echo $rows['photo']; ?>')" alt="Apple Computer"></div>
                                             </a>
                                         </div>
                                         <div class="col-md-3 col-lg-3 col-xl-3">

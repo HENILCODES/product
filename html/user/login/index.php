@@ -11,7 +11,7 @@
     <div class="container">
         <a href="../../home/"> Home </a>
         <div class="w-100 p-4 d-flex justify-content-center pb-4">
-            <form action="../../../app/user/login.php" method="POST">
+            <form action="/product/app/user/login.php" method="POST">
                 <div class="form-outline mb-4">
                     <label class="form-label" for="email">Email address</label>
                     <input required type="email" name="Email" id="email" class="form-control" />

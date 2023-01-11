@@ -11,8 +11,8 @@
 <body>
     <?php
     // session_start();
-    include "../../database/connection.php";
-    include "../master/Nav.php";
+    
+    include "/opt/lampp/htdocs/product/html/Admin/master/Nav.php";
     ?>
     <div class="container">
         <section style="background-color: #eee;" class="shadow ps-5 pe-5">
@@ -27,7 +27,7 @@
                     <thead class="table-borderless table-dark">
                         <th>ID</th>
                         <th>Name</th>
-                        <th>Price</th>
+                        <th>Email</th>
                         <th>Password</th>
                         <th>Action</th>
                     </thead>

@@ -1,6 +1,6 @@
 <?php
 
 if (!$_SESSION['ActiveAdminName']) {
-    header("location: ../../html/user/login");
+    header("location: /product/html/user/login/");
 }
 ?>
