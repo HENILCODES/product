@@ -12,7 +12,7 @@
     <?php
     include "../../master/nav.php";
 
-    $selectProfile = "SELECT users.id,users.password,users.name AS Customer_name,users.email, document.name,document.number
+    $selectProfile = "SELECT users.id,users.password,users.name AS Customer_name,users.email,users.photo, document.name,document.number
     FROM users 
         LEFT JOIN document ON document.users_id = users.id
     WHERE users.id = $activeUserId";
@@ -59,14 +59,20 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                     </div>
                     <div class="modal-body">
-                        <form action="/product/app/user/update.php" method="post" autocomplete="off">
+                        <form action="/product/app/user/update.php" method="post" autocomplete="off" enctype="multipart/form-data">
+                            <input type="hidden" name="UserId" value="<?php echo $rowsP['id']; ?>">
+
                             <div class="form-outline mb-4">
                                 <label class="form-label">User Name</label>
                                 <input required type="text" value="<?php echo $rowsP['Customer_name']; ?>" name="Name" class="form-control" />
                             </div>
                             <div class="form-outline mb-4">
                                 <label class="form-label">New Password</label>
-                                <input required type="password" name="Password" class="form-control" />
+                                <input required type="password" value="<?php echo $rowsP['password']; ?>" name="Password" class="form-control" />
+                            </div>
+                            <div class="form-outline mb-4">
+                                <label class="form-label">Photo</label>
+                                <input type="file" accept="image/*" name="photo" class="form-control" />
                             </div>
                             <button type="submit" class="btn btn-primary btn-block w-100 mb-4" name="Update">Update</button>
                         </form>
@@ -84,7 +90,7 @@
                         <div class="card mb-3 shadow" style="border-radius: .5rem;">
                             <div class="row g-0">
                                 <div class="col-md-4 gradient-custom text-center text-black" style="border-top-left-radius: .5rem; border-bottom-left-radius: .5rem;">
-                                    <img src="/product/storage/upload/download.png" alt="Avatar" class="img-fluid my-5" style="width: 80px;" />
+                                    <img src="/product/storage/upload/<?php echo $rowsP['photo']; ?>" alt="Avatar" class="img-fluid my-5" style="width: 80px;" />
                                     <h2><?php echo $rowsP['Customer_name']; ?></h2>
                                 </div>
                                 <div class="col-md-8">
@@ -160,4 +166,5 @@
     }
     ?>
 </body>
+
 </html>

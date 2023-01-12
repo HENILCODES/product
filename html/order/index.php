@@ -67,7 +67,7 @@
                                             <h5 class="mb-0 fw-bold">₹<?php echo $rows['price'] * $rows['quantity']; ?> </h5>
                                         </div>
                                         <div class="col-md-1 col-lg-1 col-xl-1 text-end">
-                                            <a href="../../app/order/delete.php?orderId=<?php echo $rows['id'];?>" class="text-danger"><i class="bi bi-trash fs-3"></i></a>
+                                            <a href="/product/app/order/Order.php?orderId=<?php echo $rows['id'];?>" class="text-danger"><i class="bi bi-trash fs-3"></i></a>
                                         </div>
                                     </div>
                                 </div>

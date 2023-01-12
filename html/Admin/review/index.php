@@ -16,12 +16,15 @@
     <div class="container">
         <section style="background-color: #eee;" class="shadow rounded ps-5 pe-5">
             <div class="container my-5 py-4">
+           
                 <div class="text-center">
                     <h2 class="fw-bold">Review Table</h2>
                 </div>
                 <div class="text-end pb-4 d-flex justify-content-between">
                     <input type="search" autocomplete="off" class="form-control w-25 me-5" id="search" placeholder="search">
                 </div>
+                <div class="overflow-auto" style="height: 600px;">
+
                 <table class="table table-primary text-center table-responsive table-bordered">
                     <thead class="table-borderless table-dark">
                         <th>Review id</th>
@@ -56,6 +59,7 @@
                         ?>
                     </tbody>
                 </table>
+                </div>
             </div>
         </section>
     </div>

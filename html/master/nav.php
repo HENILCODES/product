@@ -27,7 +27,7 @@ include "/opt/lampp/htdocs/product/database/connection.php";
                         <?php
                         if (isset($_SESSION['ActiveUser'])) {
                         ?>
-                            <li class="nav-item"> <a href="../user/profile/" class="dropdown-item"> Profile</a> </li>
+                            <li class="nav-item"> <a href="/product/html/user/profile/" class="dropdown-item"> Profile</a> </li>
                             <li class="nav-item">
                                 <a href="/product/app/user/logout.php?logout=true" class="dropdown-item"> Log Out <i class="bi bi-box-arrow-right text-danger"></i></a>
                             </li>

@@ -1,19 +1,27 @@
 <?php
-include "../../database/connection.php";
+// include "../../database/connection.php";
+include "/opt/lampp/htdocs/product/html/Admin/master/Nav.php";
 
+// user profile
 if (isset($_REQUEST['Update'])) {
     $Name = $_REQUEST['Name'];
+    $UserId = $_REQUEST['UserId'];
     $Password = $_REQUEST['Password'];
-    
-    $insertQuery = "UPDATE users SET name='$Name',password='$Password' WHERE id = $activeUserId";
+    $photo = $_FILES['photo']['name'];
+
+    if ($photo == "") {
+        $insertQuery = "UPDATE users SET name='$Name',password='$Password' WHERE id = $UserId";
+    } else {
+        move_uploaded_file($_FILES['photo']['tmp_name'], "/opt/lampp/htdocs/product/storage/upload/" . $photo);
+        $insertQuery = "UPDATE users SET name='$Name',password='$Password',photo='$photo' WHERE id = $UserId";
+    }
     $insertResult = mysqli_query($conn, $insertQuery);
     if ($insertResult) {
-        header("location: ../../html/user/profile/");
+        header("location: /product/html/user/profile/");
     }
 }
-
-
 ?>
+<!-- admin update -->
 <!doctype html>
 <html lang="en">
 
@@ -43,7 +51,7 @@ if (isset($_REQUEST['Admin_id'])) {
     <div class="my-5 text-center">
         <h1 class="text-success">Update Admin</h1>
     </div>
-    <form class="row g-3 w-50 m-auto" autocomplete="off" method="post">
+    <form class="row g-3 w-50 m-auto" autocomplete="off" method="post" enctype="multipart/form-data">
         <div class="input-group w-25">
             <spna class="input-group-text justify-content-center"> Id</spna>
             <input required type="text" class="form-control" disabled value="<?php echo $id; ?>" name="id" placeholder="Product Name">
@@ -52,9 +60,13 @@ if (isset($_REQUEST['Admin_id'])) {
             <spna class="input-group-text justify-content-center"> Name</spna>
             <input required type="text" class="form-control" value="<?php echo $name; ?>" name="AdminName" placeholder="Product Name">
         </div>
+        <div class="form-outline mb-4">
+            <label class="form-label">Photo</label>
+            <input type="file" accept="image/*" name="photo" class="form-control" />
+        </div>
         <div class="input-group">
             <spna class="input-group-text justify-content-center">Password</spna>
-            <input required type="password" class="form-control" name="AdminPassword" placeholder="Password">
+            <input required type="password" class="form-control" value="<?php echo $row['password']; ?>" name="AdminPassword" placeholder="Password">
         </div>
         <div class="mt-5 text-center">
             <button type="submit" class="btn btn-primary w-50" name="updateAdmin">update</button>
@@ -69,10 +81,17 @@ if (isset($_REQUEST['updateAdmin'])) {
     $name = $_REQUEST['AdminName'];
     $password = $_REQUEST['AdminPassword'];
 
-    $query = "UPDATE users SET name='$name',password='$password' WHERE id = $id";
+    $photo = $_FILES['photo']['name'];
+
+    if ($photo == "") {
+        $query = "UPDATE users SET name='$name',password='$password' WHERE id = $id";
+    } else {
+        move_uploaded_file($_FILES['photo']['tmp_name'], "/opt/lampp/htdocs/product/storage/upload/" . $photo);
+        $query = "UPDATE users SET name='$name',password='$password',photo='$photo' WHERE id = $id";
+    }    
     $execQuery = mysqli_query($conn, $query);
     if ($execQuery) {
-        header("location: ../../Admin/admin/");
+        header("location: /product/html/Admin/admin/");
     }
 }
 ?>

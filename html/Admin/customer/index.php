@@ -17,12 +17,15 @@
     <div class="container">
         <section style="background-color: #eee;" class="shadow ps-5 pe-5">
             <div class="container my-5 py-4">
+             
                 <div class="text-center pb-4">
-                    <h2 class="fw-bold">Customer Table</h2>
+                    <h2 class="fw-bold">Customer</h2>
                 </div>
                 <div class="text-end pb-4 d-flex justify-content-start">
                     <input type="search" autocomplete="off" id="search" class="form-control w-25 me-5" placeholder="search">
                 </div>
+                <div class="overflow-auto" style="height: 600px;">
+
                 <table class="table table-primary text-center table-responsive table-bordered">
                     <thead class="table-borderless table-dark">
                         <th>ID</th>
@@ -49,6 +52,7 @@
                         ?>
                     </tbody>
                 </table>
+                </div>
             </div>
         </section>
     </div>

@@ -10,7 +10,7 @@
 
 <body>
     <?php
-    
+
     include "/opt/lampp/htdocs/product/html/Admin/master/Nav.php";
     ?>
     <div class="modal" id="AddAdmin">
@@ -50,42 +50,48 @@
     <div class="container">
         <section style="background-color: #eee;" class="shadow rounded ps-5 pe-5">
             <div class="container my-5 py-4">
+           
                 <div class="text-center">
-                    <h2 class="fw-bold">Admin Table</h2>
+                    <h2 class="fw-bold">Admin</h2>
                 </div>
                 <div class="text-end pb-4 d-flex justify-content-between">
                     <input type="search" autocomplete="off" class="form-control w-25 me-5" id="search" placeholder="search">
                     <button class="btn btn-success shadow" data-bs-toggle="modal" data-bs-target="#AddAdmin">Add</button>
                 </div>
-                <table class="table table-primary text-center table-responsive table-bordered">
-                    <thead class="table-borderless table-dark">
-                        <th>ID</th>
-                        <th>Name</th>
-                        <th>email</th>
-                        <th>Password</th>
-                        <th>Action</th>
-                    </thead>
-                    <tbody id="Search_table">
-                        <?php
-                        $select_product = "select * from users where type='admin' ORDER BY id DESC ";
-                        $result_select_product = mysqli_query($conn, $select_product);
-                        while ($row = mysqli_fetch_array($result_select_product)) {
-                        ?>
-                            <tr>
-                                <td><?php echo $row['id'] ?></td>
-                                <td><?php echo $row['name'] ?></td>
-                                <td><?php echo $row['email'] ?></td>
-                                <td><?php echo $row['password'] ?></td>
-                                <td>
-                                    <a href="/product/app/user/update.php?Admin_id=<?php echo $row['id']; ?>" class="btn btn-success bi bi-pencil me-3"></a>
-                                    <a href="/product/app/user/delete.php?Admin_id=<?php echo $row['id']; ?>" class="btn btn-danger bi bi-trash"></a>
-                                </td>
-                            </tr>
-                        <?php
-                        }
-                        ?>
-                    </tbody>
-                </table>
+                <div class="overflow-auto" style="height: 600px;">
+
+                    <table class="table table-primary text-center table-responsive table-bordered">
+                        <thead class="table-borderless table-dark">
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>email</th>
+                            <th>Photo</th>
+                            <th>Password</th>
+                            <th>Action</th>
+                        </thead>
+                        <tbody id="Search_table" class="overflow-auto">
+                            <?php
+                            $select_product = "select * from users where type='admin' ORDER BY id DESC ";
+                            $result_select_product = mysqli_query($conn, $select_product);
+                            while ($row = mysqli_fetch_array($result_select_product)) {
+                            ?>
+                                <tr>
+                                    <td><?php echo $row['id'] ?></td>
+                                    <td><?php echo $row['name'] ?></td>
+                                    <td><?php echo $row['email'] ?></td>
+                                    <td><img width="50px" src="/product/storage/upload/<?php echo $row['photo']; ?>"></td>
+                                    <td><?php echo $row['password'] ?></td>
+                                    <td>
+                                        <a href="/product/app/user/update.php?Admin_id=<?php echo $row['id']; ?>" class="btn btn-success bi bi-pencil me-3"></a>
+                                        <a href="/product/app/user/delete.php?Admin_id=<?php echo $row['id']; ?>" class="btn btn-danger bi bi-trash"></a>
+                                    </td>
+                                </tr>
+                            <?php
+                            }
+                            ?>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </section>
     </div>

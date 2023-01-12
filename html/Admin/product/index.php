@@ -10,7 +10,7 @@
 
 <body>
     <?php
-    
+
     include "/opt/lampp/htdocs/product/html/Admin/master/Nav.php";
     ?>
     <div class="modal" id="AddProduct">
@@ -50,42 +50,46 @@
     <div class="container">
         <section style="background-color: #eee;" class="shadow rounded ps-5 pe-5">
             <div class="container my-5 py-4">
+           
                 <div class="text-center">
-                    <h2 class="fw-bold">Product Table</h2>
+                    <h2 class="fw-bold">Product</h2>
                 </div>
                 <div class="text-end pb-4 d-flex justify-content-between">
                     <input type="search" autocomplete="off" class="form-control w-25 me-5" id="search" placeholder="search">
                     <button class="btn btn-success shadow" data-bs-toggle="modal" data-bs-target="#AddProduct">Add</button>
                 </div>
-                <table class="table table-primary text-center table-responsive table-bordered">
-                    <thead class="table-borderless table-dark">
-                        <th>ID</th>
-                        <th>Name</th>
-                        <th>Price</th>
-                        <th>Photo</th>
-                        <th>Action</th>
-                    </thead>
-                    <tbody id="Search_table">
-                        <?php
-                        $selectProduct = "select * from products ORDER BY id DESC";
-                        $resultSelectProduct = mysqli_query($conn, $selectProduct);
-                        while ($row = mysqli_fetch_array($resultSelectProduct)) {
-                        ?>
-                            <tr>
-                                <td><?php echo $row['id'] ?></td>
-                                <td><?php echo $row['name'] ?></td>
-                                <td><?php echo $row['price'] ?></td>
-                                <td> <img src="/product/storage/upload/<?php echo $row['photo'] ?>" width="80px"> </td>
-                                <td>
-                                    <a href="/product/app/product/update.php?Update_product_id=<?php echo $row['id']; ?>" class="btn btn-success bi bi-pencil me-3"></a>
-                                    <a href="/product/app/product/delete.php?Product_id=<?php echo $row['id']; ?>" class="btn btn-danger bi bi-trash"></a>
-                                </td>
-                            </tr>
-                        <?php
-                        }
-                        ?>
-                    </tbody>
-                </table>
+             
+                <div class="overflow-auto" style="height: 600px;">
+                    <table class="table table-primary text-center table-responsive table-bordered">
+                        <thead class="table-borderless table-dark">
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Price</th>
+                            <th>Photo</th>
+                            <th>Action</th>
+                        </thead>
+                        <tbody id="Search_table">
+                            <?php
+                            $selectProduct = "select * from products ORDER BY id DESC";
+                            $resultSelectProduct = mysqli_query($conn, $selectProduct);
+                            while ($row = mysqli_fetch_array($resultSelectProduct)) {
+                            ?>
+                                <tr>
+                                    <td><?php echo $row['id'] ?></td>
+                                    <td><?php echo $row['name'] ?></td>
+                                    <td><?php echo $row['price'] ?></td>
+                                    <td> <img src="/product/storage/upload/<?php echo $row['photo'] ?>" width="80px"> </td>
+                                    <td>
+                                        <a href="/product/app/product/update.php?Update_product_id=<?php echo $row['id']; ?>" class="btn btn-success bi bi-pencil me-3"></a>
+                                        <a href="/product/app/product/delete.php?Product_id=<?php echo $row['id']; ?>" class="btn btn-danger bi bi-trash"></a>
+                                    </td>
+                                </tr>
+                            <?php
+                            }
+                            ?>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </section>
     </div>

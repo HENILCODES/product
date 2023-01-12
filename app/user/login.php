@@ -16,6 +16,7 @@ if (isset($_POST['Login'])) {
         echo $type;
         if ($type == 'admin') {
             $_SESSION['ActiveAdminName'] = $fetchRow['name'];
+            $_SESSION['ActiveAdminID'] = $fetchRow['id'];
             header("location: /product/html/Admin/home/");
         }
         if ($type == 'customer') {

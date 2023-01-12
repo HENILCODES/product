@@ -1,7 +1,7 @@
 <?php
 require_once '/opt/lampp/htdocs/product/database/connection.php';
 
-class Review extends Connection
+class Review extends connection
 {
     function delete($id)
     {
