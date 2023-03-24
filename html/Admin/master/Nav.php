@@ -48,7 +48,7 @@ $row = mysqli_fetch_array($result);
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <?php
-                        if (isset($_SESSION['ActiveUser'])) {
+                        if (isset($_SESSION['ActiveAdminName'])) {
                         ?>
                             <li class="nav-item"> <a href="/product/html/Admin/profile/" class="dropdown-item"> Profile</a> </li>
                             <li class="nav-item">
