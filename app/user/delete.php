@@ -7,6 +7,6 @@ if (isset($_REQUEST['Admin_id'])) {
     $deleteQuery = "delete from users where id = $AdminId";
     $executeDelet = mysqli_query($conn, $deleteQuery);
     if ($executeDelet) {
-        header("location: ../../Admin/admin/");
+        header("location: http://localhost/product/html/Admin/admin/");
     }
 }

@@ -39,7 +39,7 @@ if (isset($_REQUEST['AddAdmin'])) {
     $execute = mysqli_query($conn, $inseet);
 
     if ($execute) {
-        header("location: ../../Admin/admin/");
+        header("location: http://localhost/product/html/Admin/admin/");
     }
 }
 ?>
