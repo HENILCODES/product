@@ -1,4 +1,5 @@
 <?php
+error_reporting(0);
 $activeUserName = "";
 session_start();
 if (isset($_SESSION['ActiveUser'])) {
@@ -17,10 +18,10 @@ if (!$conn) {
     echo "Not Connect";
 }
 
-
 class connection{
     public $conn;
     function ConnectionStart(){
        return mysqli_connect("localhost","root","","store"); 
     }
 }
+?>

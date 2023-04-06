@@ -1,5 +1,5 @@
 <?php
-require_once '/opt/lampp/htdocs/product/database/connection.php';
+require_once '../../database/connection.php';
 
 class Review extends connection
 {

@@ -2,24 +2,24 @@
 // include "../../database/connection.php";
 include "/opt/lampp/htdocs/product/html/Admin/master/Nav.php";
 
-// user profile
-if (isset($_REQUEST['Update'])) {
-    $Name = $_REQUEST['Name'];
-    $UserId = $_REQUEST['UserId'];
-    $Password = $_REQUEST['Password'];
-    $photo = $_FILES['photo']['name'];
+//  // user profile
+//  if (isset($_REQUEST['Update'])) {
+//     $Name = $_REQUEST['Name'];
+//     $UserId = $_REQUEST['UserId'];
+//     $Password = $_REQUEST['Password'];
+//     $photo = $_FILES['photo']['name'];
 
-    if ($photo == "") {
-        $insertQuery = "UPDATE users SET name='$Name',password='$Password' WHERE id = $UserId";
-    } else {
-        move_uploaded_file($_FILES['photo']['tmp_name'], "/opt/lampp/htdocs/product/storage/upload/" . $photo);
-        $insertQuery = "UPDATE users SET name='$Name',password='$Password',photo='$photo' WHERE id = $UserId";
-    }
-    $insertResult = mysqli_query($conn, $insertQuery);
-    if ($insertResult) {
-        header("location: /product/html/user/profile/");
-    }
-}
+//     if ($photo == "") {
+//         $insertQuery = "UPDATE users SET name='$Name',password='$Password' WHERE id = $UserId";
+//     } else {
+//         move_uploaded_file($_FILES['photo']['tmp_name'], "/opt/lampp/htdocs/product/storage/upload/" . $photo);
+//         $insertQuery = "UPDATE users SET name='$Name',password='$Password',photo='$photo' WHERE id = $UserId";
+//     }
+//     $insertResult = mysqli_query($conn, $insertQuery);
+//     if ($insertResult) {
+//         header("location: /product/html/user/profile/");
+//     }
+// }
 ?>
 <!-- admin update -->
 <title>Update Admin</title>

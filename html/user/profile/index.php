@@ -12,6 +12,24 @@
     <?php
     include "../../master/nav.php";
 
+    // user profile
+    if (isset($_REQUEST['Update'])) {
+        $Name = $_REQUEST['Name'];
+        $UserId = $_REQUEST['UserId'];
+        $Password = $_REQUEST['Password'];
+        $photo = $_FILES['photo']['name'];
+
+        if ($photo == "") {
+            $insertQuery = "UPDATE users SET name='$Name',password='$Password' WHERE id = $UserId";
+        } else {
+            move_uploaded_file($_FILES['photo']['tmp_name'], "/opt/lampp/htdocs/product/storage/upload/" . $photo);
+            $insertQuery = "UPDATE users SET name='$Name',password='$Password',photo='$photo' WHERE id = $UserId";
+        }
+        $insertResult = mysqli_query($conn, $insertQuery);
+        if ($insertResult) {
+            header("location: /product/html/user/profile/");
+        }
+    }
     $selectProfile = "SELECT users.id,users.password,users.name AS Customer_name,users.email,users.photo, document.name,document.number
     FROM users 
         LEFT JOIN document ON document.users_id = users.id
@@ -59,7 +77,7 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                     </div>
                     <div class="modal-body">
-                        <form action="/product/app/user/update.php" method="post" autocomplete="off" enctype="multipart/form-data">
+                        <form action="" method="post" autocomplete="off" enctype="multipart/form-data">
                             <input type="hidden" name="UserId" value="<?php echo $rowsP['id']; ?>">
 
                             <div class="form-outline mb-4">
