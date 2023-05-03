@@ -25,7 +25,7 @@
     <section style="background-color: #eee;">
         <div class="container py-5">
             <div>
-                <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 flex-wrap">
+                <div class="row gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 flex-wrap justify-content-center">
                     <?php
                     $selectProduct = "select * from products ORDER BY id DESC";
                     $resultSelectProduct = mysqli_query($conn, $selectProduct);
